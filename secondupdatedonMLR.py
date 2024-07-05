@@ -16,6 +16,11 @@ class VoiceRecorder:
         self.button = tk.Button(master, text="Start Recording", command=self.toggle_recording)
         self.button.pack(pady=20)
 
+        self.master.bind('<space>', self.toggle_recording_event)
+
+    def toggle_recording_event(self, event):
+        self.toggle_recording()
+
     def toggle_recording(self):
         if self.is_recording:
             self.stop_recording()
